@@ -19,9 +19,24 @@ let quoteAuthor = [
 ];
 
 
+let randomNumber;
+let currentNumber;
+
+
 function showQuote() {
-    let randomNumber = Math.floor(Math.random() * (6 - 0 + 1));
+    randomNumber = Math.floor(Math.random() * (6 - 0 + 1));
+
+    if (currentNumber == randomNumber) {
+        if (randomNumber >= 0 && randomNumber < 6) {
+            randomNumber = randomNumber + 1;
+        }
+        else if (randomNumber > 0 && randomNumber <= 6) {
+            randomNumber = randomNumber - 1;
+        }
+    }
 
     document.getElementById('quote').innerHTML = quote[randomNumber];
     document.getElementById('quote-author').innerHTML = quoteAuthor[randomNumber];
+
+    currentNumber = randomNumber;
 };
