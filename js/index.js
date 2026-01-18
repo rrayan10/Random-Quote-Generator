@@ -59,27 +59,18 @@ let quotesArray = [
         quote: "“Life is what happens to us while we are making other plans.”",
         author: "― Allen Saunders"
     },
-]
+];
 
+let currentRandom, oldRandom, generatedQuote;
 
-let randomNumber;
-let currentNumber;
+function generateQuote() {
+    do {
+        currentRandom = Math.floor(Math.random() * quotesArray.length)
+    } while (currentRandom === oldRandom);
+    
+    generatedQuote = quotesArray[currentRandom];
+    oldRandom = currentRandom;
 
-
-function showQuote() {
-    randomNumber = Math.floor(Math.random() * (6 - 0 + 1));
-
-    if (currentNumber == randomNumber) {
-        if (randomNumber >= 0 && randomNumber < 6) {
-            randomNumber = randomNumber + 1;
-        }
-        else if (randomNumber > 0 && randomNumber <= 6) {
-            randomNumber = randomNumber - 1;
-        }
-    }
-
-    document.getElementById('quote').innerHTML = quote[randomNumber];
-    document.getElementById('quote-author').innerHTML = quoteAuthor[randomNumber];
-
-    currentNumber = randomNumber;
+    document.getElementById('quote').innerHTML = generatedQuote.quote;
+    document.getElementById('author').innerHTML = generatedQuote.author;
 };
