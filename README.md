@@ -1,1 +1,1 @@
-Live: https://rrayan10.github.io/Random-Quote-Generator/
+Live: https://rayanelhawagry.github.io/Random-Quote-Generator/
